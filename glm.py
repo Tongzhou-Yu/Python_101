@@ -23,9 +23,19 @@ def call_zhipu_api(messages, model="glm-4-flash"):
         raise Exception(f"API调用失败: {response.status_code}, {response.text}")
 
 # 使用示例
-messages = [
-    {"role": "user", "content": "你好，请介绍一下自己"}
-]
-
-result = call_zhipu_api(messages)
-print(result['choices'][0]['message']['content'])
+# 删除了官方的内容
+# 多轮对话循环，直到用户输入 '再见' 结束
+# while True: 表示“当条件为真时一直循环”。由于 True 永远为真，这个循环会一直运行，直到遇到 break 才会停止。
+while True:
+    user_input = input("请输入你要说的话（输入“再见”退出）：")
+    if user_input in ['再见']:
+        print("对话结束。")
+        break
+    messages = [
+        {"role": "user", "content": user_input}
+    ]
+    try:
+        result = call_zhipu_api(messages)
+        print(result['choices'][0]['message']['content'])
+    except Exception as e:
+        print(f"发生错误: {e}")
