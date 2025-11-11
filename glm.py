@@ -34,8 +34,5 @@ while True:
     messages = [
         {"role": "user", "content": user_input}
     ]
-    try:
-        result = call_zhipu_api(messages)
-        print(result['choices'][0]['message']['content'])
-    except Exception as e:
-        print(f"发生错误: {e}")
+    result = call_zhipu_api(messages)
+    print(result['choices'][0]['message']['content'])
