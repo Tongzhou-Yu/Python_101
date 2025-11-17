@@ -138,3 +138,107 @@
 - f-string 字符串格式化
 - 简洁的语法和丰富的内置功能
 
+## Git 基础操作与与 Cursor 同步流程
+
+### 一、Git 基础及常用命令
+
+#### 1. Git 简介
+Git 是一个分布式版本控制系统，适合多人协作开发，能够跟踪文件的变更历史，回退版本，方便协作与管理。
+
+#### 2. 配置用户名和邮箱
+
+Git 需要配置用户名（user.name）和邮箱（user.email）以标记每次提交者的信息。
+
+```bash
+git config --global user.name "你的名字"
+git config --global user.email "你的邮箱@example.com"
+```
+- `--global` 表示全局配置（对当前用户所有仓库生效）。
+
+#### 3. 初始化本地仓库
+
+```bash
+git init
+```
+- 在当前目录初始化一个新的本地 Git 仓库。
+
+#### 4. 添加文件到暂存区
+
+```bash
+git add 文件名
+# 或添加所有更改
+git add .
+```
+
+#### 5. 提交更改
+
+```bash
+git commit -m "提交说明"
+```
+- `-m` 后面是本次提交的信息。
+
+#### 6. 查看状态与历史
+
+```bash
+git status    # 查看当前工作区和暂存区状态
+git log       # 查看提交历史
+```
+
+#### 7. 远程仓库操作
+
+##### 添加远程仓库（如 Cursor 云端）
+
+```bash
+git remote add origin 仓库地址
+```
+
+##### 拉取远程更新（先同步云端最新代码）
+
+```bash
+git pull origin main
+```
+
+##### 推送本地代码到远程
+
+```bash
+git push origin main
+```
+
+### 二、使用 Cursor 与 Git 同步代码的典型流程
+
+以云端团队协作为例，建议操作顺序如下：
+
+1. **拉取最新云端代码（避免冲突）**
+   ```bash
+   git pull origin main
+   ```
+
+2. **编辑本地代码、保存修改**
+
+3. **查看状态，添加需要提交的文件**
+   ```bash
+   git status
+   git add 文件名
+   ```
+
+4. **提交到本地仓库**
+   ```bash
+   git commit -m "描述你的更改"
+   ```
+
+5. **推送到远程云端（与 Cursor 或代码托管平台同步）**
+   ```bash
+   git push origin main
+   ```
+
+6. **如遇冲突，按照提示解决，并重复 add/commit/push**
+
+---
+
+### 常见问题与建议
+
+- 每次推送前，**先 pull**，再 push。
+- 只需配置一次 user.name 和 user.email。
+- 推荐使用 `.gitignore` 忽略不需要同步的文件（如虚拟环境、日志等）。
+- 可在 Cursor 编辑器内集成终端直接运行上述 Git 命令。
+

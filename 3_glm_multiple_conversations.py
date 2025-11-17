@@ -1,6 +1,8 @@
 import requests
 import json
 
+from requests.utils import stream_decode_response_unicode
+
 def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
@@ -12,7 +14,7 @@ def call_zhipu_api(messages, model="glm-4-flash"):
     data = {
         "model": model,
         "messages": messages,
-        "temperature": 0.5
+        "temperature": 0.5   
     }
 
     response = requests.post(url, headers=headers, json=data)
@@ -23,10 +25,8 @@ def call_zhipu_api(messages, model="glm-4-flash"):
         raise Exception(f"API调用失败: {response.status_code}, {response.text}")
 
 # 使用示例
-# 删除了官方的内容
 # 多轮对话循环，直到用户输入 '再见' 结束
-# while True: 表示“当条件为真时一直循环”。由于 True 永远为真，这个循环会一直运行，直到遇到 break 才会停止。
-while True:
+while True:  # 表示“当条件为真时一直循环”。由于 True 永远为真，这个循环会一直运行，直到遇到 break 才会停止。
     user_input = input("请输入你要说的话（输入“再见”退出）：")
     if user_input in ['再见']:
         print("对话结束。")
