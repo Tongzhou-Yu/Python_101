@@ -24,11 +24,13 @@ def call_zhipu_api(messages, model="glm-4-flash"):
     else:
         raise Exception(f"API调用失败: {response.status_code}, {response.text}")
 
+role_system = "你是一个聊天机器人，请介绍一下自己"
 user_input = input("请输入你要说的话：")
+
 messages = [
     {
       "role": "user",
-      "content": user_input
+      "content": role_system + user_input
     }
 ]
 result = call_zhipu_api(messages)
