@@ -44,7 +44,7 @@ class Ws_Param(object):
         self.CommonArgs = {"app_id": self.APPID, "status": 2}
         self.BusinessArgs = {
             "tts": {
-                "vcn": "x5_lingxiaoxuan_flow", # 语音合成模型
+                "vcn": "x5_lingxiaoxuan_flow", # 语音合成模型，可参考 https://www.xfyun.cn/services/smart-tts
                 "volume": 50, # 音量
                 "rhy": 1, # 韵律
                 "speed": 50, # 语速

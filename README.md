@@ -11,6 +11,10 @@
 
 ![Anaconda 添加到 PATH 路径截图](Anaconda_PATH.png)
 
+## 课程需申请的API Key：
+- https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys
+- https://console.xfyun.cn/services/uts
+
 ## 虚拟环境设置（Cursor）
 
 ### 创建虚拟环境
