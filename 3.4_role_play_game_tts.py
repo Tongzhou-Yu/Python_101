@@ -76,7 +76,6 @@ while True:
     print(assistant_reply)
 
     # TTS语音播放
-    # 需要安装playsound：pip install playsound
     text_to_speech(assistant_reply)
     
     # 检查是否猜对（模型回复"再见"）

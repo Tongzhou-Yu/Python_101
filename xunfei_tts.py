@@ -28,7 +28,7 @@ except:
 APPID = 'APPID'  # 替换为你的APPID
 APIKEY = 'APIKEY'  # 替换为你的APIKey
 APISECRET = 'APISECRET'  # 替换为你的APISecret
-REQURL = 'wss://cbm01.cn-huabei-1.xf-yun.com/v1/private/mcd9m97e6'  # 根据你的服务地址修改
+REQURL = 'REQURL'  # 根据你的服务地址修改
 
 # ========== 音频保存配置 ==========
 AUDIO_SAVE_DIR = 'tts_audio'  # 音频保存文件夹

@@ -73,6 +73,7 @@ while True:
     
     # 打印回复
     print(assistant_reply)
+    print(conversation_history)
     
     # 检查是否猜对（模型回复"再见"）
     if "再见" in assistant_reply:
