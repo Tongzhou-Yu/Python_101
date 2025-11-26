@@ -116,8 +116,6 @@ def roles(role_name):
 # 【系统角色设定】
 # 定义AI的角色和性格特征
 role_system = roles("小丑")
-
-
     
 
 # 【结束对话规则】
