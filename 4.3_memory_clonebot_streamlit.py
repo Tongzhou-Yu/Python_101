@@ -256,7 +256,7 @@ with st.sidebar:
     selected_role = st.selectbox(
         "选择角色",
         ["小丑", "人质"],
-        index=1 if st.session_state.selected_role == "人质" else 0
+        index=1 if st.session_state.selected_role == "小丑" else 0
     )
     
     # 如果角色改变，重新初始化对话
