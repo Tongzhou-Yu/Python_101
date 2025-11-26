@@ -223,6 +223,47 @@ try:
         conversation_history.append({"role": "assistant", "content": assistant_reply})
         
         # 【步骤6：显示AI回复】
+        # 生成Ascii头像：https://www.ascii-art-generator.org/
+        portrait = """
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWMWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWMWWWWWWWWWWNNNNWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWNXK00000000KKKKXNWNNWWWWWWWWWWWW
+WWWWWWWWWWWWWWWNKOxxxxxxxdxxxxOOOO0KKKKXNWWWWWWWWW
+WWWWWWWWWWWWNXKOkxxxxo:,'.,c:;colldkkk0XNWWWWNNNNN
+WWWWWWWWWWNX0Okkxxoc;'.....,;,;:,',:dk0XNWWWWWWWWW
+WWWWWWWWNNNKOxdol:,'''',,,,,;,;;;;;;lkKXWWWWWWWWWW
+WWWWWWWNNNNKOdc,','',,'';:::::::;;::ckXWWWWWWWWWWW
+WWWWWWWWWNNX0d;'''',,,,;;;:::::::;:ccdKWWWWWWWWWWW
+WWNNNNNWNNNXXk;',;;;;;,;;;;:cccllcc:::dXWNNNNNNNXX
+NNWNNNWNWNNNNd,',;:;;;:clodkO0000OOxl;cOXKKKKKKK00
+XXXXXKKKKKKX0c,;;;,;;:loddxkOO000Okxo;l0KKKKKKKKKK
+00KKKKKK00KKOl,,,.,:'.....',;:cdkdl:,;xKXXXXKXXKKK
+KKKKKKKXXKXXXOc;::cdd:..      .,l;. .oKXXXXXXXXXXX
+XXXXXXXXXXXXXXKOxoodkkko:,'..';dko;:xKXXNNXNNXXXXX
+XXXXXXXXXXXXK0KkoloddxO0000kkkOO0OkO0KKK0000KK0000
+KKKKKKKXKKKx;.'..;lloxkkOOkkOOOOOkxk0000OOO0000OOO
+0K000KK00x:.     .:lcldxxkxxxxdddxO0000KK0OO0000OO
+000Okdl;...       ,oolccoddxxxddxOKKKKKK000O000OO0
+xoc,..            .,dxdolllllc:lOKKKKKXXKXXXXXXXXX
+..                  'ddloodl'  .':cxO0KKXXXXXXXXXX
+                    .';;,','..   .',:xKK0KKXXXXXXX
+                       ......     .. 'kXKKXXNNXXXX
+                 .     ';;:c:.       .lXXXXXXXXXXX
+          ..   ..      'oOOOd'        .xXXXXXXXXXX
+    ..... ..      ..    'cdOk:.        ,OXXXXXXXXX
+           ...    ...     ,xOl.        .:0XXXXXXXX
+        ..   ..    ..      'dx,     .   .oKXXXXXXX
+      .....         .       .c'     .    .l0XXXXXX
+    ..........           .                .;kXXXXX
+   ... ..........                           ,OXXXX
+       ...............                      'kXKXX
+         .....   ....                       'kXKKK
+        ....     ..                         .,o0KK
+         ..                                   .dKK
+                                               :OO
+                  ..                           ,dd
+                 .;;.                          ,oo
+        """
         print(assistant_reply)
         
         # 【步骤7：检查AI回复是否表示结束】
