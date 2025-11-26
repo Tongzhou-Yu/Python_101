@@ -264,7 +264,7 @@ xoc,..            .,dxdolllllc:lOKKKKKXXKXXXXXXXXX
                   ..                           ,dd
                  .;;.                          ,oo
         """
-        print(assistant_reply)
+        print(portrait + "\n" + assistant_reply)
         
         # 【步骤7：检查AI回复是否表示结束】
         reply_cleaned = assistant_reply.strip().replace(" ", "").replace("！", "").replace("!", "").replace("，", "").replace(",", "")
