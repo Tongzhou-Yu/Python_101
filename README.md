@@ -45,22 +45,37 @@
    - 选择 `.venv` 文件夹中的Python解释器
 
 ### 安装依赖库
+
 激活虚拟环境后，安装项目所需的库：
 
+**方式一：使用 requirements.txt（推荐）**
 ```bash
-pip install requests websocket-client pygame
+pip install -r requirements.txt
+```
+
+**方式二：手动安装**
+```bash
+pip install requests streamlit websocket-client pygame
 ```
 
 **依赖库说明**：
-- `requests` - 用于HTTP API调用（智谱AI）
-- `websocket-client` - 用于WebSocket连接（科大讯飞TTS）
-- `pygame` - 用于音频播放
 
-**注意**：确保安装的是 `websocket-client` 而不是 `websocket`：
-```bash
-pip uninstall websocket -y  # 如果已安装错误的websocket包
-pip install websocket-client
-```
+| 库名               | 用途          | 必需性 | 使用场景                                                   |
+| ------------------ | ------------- | ------ | ---------------------------------------------------------- |
+| `requests`         | HTTP API调用  | ✅ 必需 | 所有课程（调用智谱AI API）                                 |
+| `streamlit`        | Web界面框架   | ⚠️ 可选 | 第3周 Streamlit 版本（`3.3_memory_clonebot_streamlit.py`） |
+| `websocket-client` | WebSocket连接 | ⚠️ 可选 | 第2周 TTS功能（`xunfei_tts.py`）                           |
+| `pygame`           | 音频播放      | ⚠️ 可选 | 第2周 TTS音频播放（有系统默认播放器作为备选）              |
+
+**注意事项**：
+1. **基础功能**：如果只学习第1-2周的基础对话功能，只需要安装 `requests`
+2. **Streamlit版本**：如果要运行第3周的 Streamlit 版本，需要安装 `streamlit`
+3. **TTS功能**：如果要使用第2周的语音合成功能，需要安装 `websocket-client` 和 `pygame`
+4. **websocket包冲突**：确保安装的是 `websocket-client` 而不是 `websocket`：
+   ```bash
+   pip uninstall websocket -y  # 如果已安装错误的websocket包
+   pip install websocket-client
+   ```
 
 ## 项目学习路线（Roadmap）
 
