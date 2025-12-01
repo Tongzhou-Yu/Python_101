@@ -61,3 +61,8 @@ pip install requests websocket-client pygame
 pip uninstall websocket -y  # 如果已安装错误的websocket包
 pip install websocket-client
 ```
+
+周次	主题	文件
+第1周	Python基础	1_* 
+第2周	对话系统	2_*(单轮→多轮→角色扮演→TTS)
+第3周	记忆系统	3_* (函数引入→记忆基础→克隆机器人→Streamlit)

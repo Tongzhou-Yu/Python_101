@@ -45,7 +45,7 @@ def call_zhipu_api(messages, model="glm-4-flash"):
 # }
 
 # 记忆文件的路径和文件名
-MEMORY_FILE = "conversation_memory.json"
+MEMORY_FILE = "3.1_memory_101/conversation_memory.json"
 
 def load_memory():
     # 从JSON文件加载对话历史

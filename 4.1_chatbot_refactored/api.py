@@ -1,9 +1,18 @@
 import requests
-import json
 
 from requests.utils import stream_decode_response_unicode
 
 def call_zhipu_api(messages, model="glm-4-flash"):
+    """
+    调用智谱API获取AI回复
+    
+    参数：
+        messages: 对话消息列表，格式：[{"role": "user", "content": "..."}]
+        model: 模型名称，默认为 "glm-4-flash"
+    
+    返回：
+        API返回的JSON数据（字典格式）
+    """
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
     headers = {
@@ -24,16 +33,3 @@ def call_zhipu_api(messages, model="glm-4-flash"):
     else:
         raise Exception(f"API调用失败: {response.status_code}, {response.text}")
 
-# 使用示例
-role_system = "你所有的回答都要扮演成一个疯狂的小丑"
-# 多轮对话循环，直到用户输入 '再见' 结束
-while True:  # 表示“当条件为真时一直循环”。由于 True 永远为真，这个循环会一直运行，直到遇到 break 才会停止。
-    user_input = input("请输入你要说的话（输入“再见”退出）：")
-    if user_input in ['再见']:
-        print("对话结束。")
-        break
-    messages = [
-        {"role": "user", "content": role_system + user_input}
-    ]
-    result = call_zhipu_api(messages)
-    print(result['choices'][0]['message']['content'])
