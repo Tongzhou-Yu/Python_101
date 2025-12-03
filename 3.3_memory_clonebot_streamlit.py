@@ -13,8 +13,6 @@ except ImportError:
 def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
-    zhipu_api_key = os.getenv("ZHIPU_API_KEY")
-
     headers = {
         "Authorization": ZHIPU_API_KEY,
         "Content-Type": "application/json"
