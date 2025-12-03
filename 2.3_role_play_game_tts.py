@@ -5,11 +5,16 @@ import random
 from requests.utils import stream_decode_response_unicode
 from xunfei_tts import text_to_speech 
 
+try:
+    from config import ZHIPU_API_KEY
+except ImportError:
+    ZHIPU_API_KEY = "你的智谱AI_API_KEY"
+
 def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
     headers = {
-        "Authorization": "1732aa9845ec4ce09dca7cd10e02d209.dA36k1HPTnFk7cLU",
+        "Authorization": ZHIPU_API_KEY,
         "Content-Type": "application/json"
     }
 

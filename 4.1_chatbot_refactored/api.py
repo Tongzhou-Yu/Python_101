@@ -1,6 +1,16 @@
 import requests
+import sys
+import os
 
 from requests.utils import stream_decode_response_unicode
+
+# 添加项目根目录到路径，以便导入config
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from config import ZHIPU_API_KEY
+except ImportError:
+    ZHIPU_API_KEY = "你的智谱AI_API_KEY"
 
 def call_zhipu_api(messages, model="glm-4-flash"):
     """
@@ -16,7 +26,7 @@ def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
     headers = {
-        "Authorization": "1732aa9845ec4ce09dca7cd10e02d209.dA36k1HPTnFk7cLU",
+        "Authorization": ZHIPU_API_KEY,
         "Content-Type": "application/json"
     }
 

@@ -24,11 +24,18 @@ try:
 except:
     HAS_PYGAME = False
 
-# ========== 科大讯飞TTS配置（在这里填写你的API信息）==========
-APPID = 'APPID'  # 替换为你的APPID
-APIKEY = 'APIKEY'  # 替换为你的APIKey
-APISECRET = 'APISECRET'  # 替换为你的APISecret
-REQURL = 'REQURL'  # 根据你的服务地址修改
+# ========== 科大讯飞TTS配置 ==========
+try:
+    from config import XUNFEI_APPID, XUNFEI_APIKEY, XUNFEI_APISECRET, XUNFEI_REQURL
+    APPID = XUNFEI_APPID
+    APIKEY = XUNFEI_APIKEY
+    APISECRET = XUNFEI_APISECRET
+    REQURL = XUNFEI_REQURL
+except ImportError:
+    APPID = 'APPID'
+    APIKEY = 'APIKEY'
+    APISECRET = 'APISECRET'
+    REQURL = 'REQURL'
 
 # ========== 音频保存配置 ==========
 AUDIO_SAVE_DIR = 'tts_audio'  # 音频保存文件夹
