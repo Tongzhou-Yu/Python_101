@@ -8,10 +8,12 @@ from requests.utils import stream_decode_response_unicode
 try:
     from config import ZHIPU_API_KEY
 except ImportError:
-    ZHIPU_API_KEY = "你的智谱AI_API_KEY"
+    ZHIPU_API_KEY = "1732aa9845ec4ce09dca7cd10e02d209.dA36k1HPTnFk7cLU"
 
 def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
+
+    zhipu_api_key = os.getenv("ZHIPU_API_KEY")
 
     headers = {
         "Authorization": ZHIPU_API_KEY,
