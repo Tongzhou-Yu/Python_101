@@ -9,3 +9,6 @@ XUNFEI_APIKEY = "你的APIKey"
 XUNFEI_APISECRET = "你的APISecret"
 XUNFEI_REQURL = "你的WebSocket地址"
 
+# JSONBin.io配置
+JSONBIN_BIN_ID = "你的bin-id"
+JSONBIN_API_KEY = "你的api-key"
