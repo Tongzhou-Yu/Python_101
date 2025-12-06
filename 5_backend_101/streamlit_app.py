@@ -1,8 +1,5 @@
 import streamlit as st
-import sys
 import os
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from roles import get_role_prompt, get_break_rules
 from logic import should_exit_by_user, should_exit_by_ai

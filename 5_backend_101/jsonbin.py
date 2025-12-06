@@ -1,11 +1,8 @@
 import requests
 from datetime import datetime
 
-try:
-    from config import JSONBIN_BIN_ID, JSONBIN_ACCESS_KEY
-except ImportError:
-    JSONBIN_BIN_ID = "6930e999ae596e708f822224"
-    JSONBIN_ACCESS_KEY = "$2a$10$Vx9xdZLj14w8Tmdy7Bhqwu74fcQVBHN5trY4ABjxztuEdNLjuKT6a"
+JSONBIN_BIN_ID = "6930e999ae596e708f822224"
+JSONBIN_ACCESS_KEY = "$2a$10$Vx9xdZLj14w8Tmdy7Bhqwu74fcQVBHN5trY4ABjxztuEdNLjuKT6a"
 
 JSONBIN_URL = f"https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}"
 

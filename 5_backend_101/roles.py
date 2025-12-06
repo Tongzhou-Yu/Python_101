@@ -1,7 +1,7 @@
 import json
 import os
 
-MEMORY_FOLDER = "3.2_memory_clonebot"
+MEMORY_FOLDER = os.path.dirname(__file__)
 ROLE_MEMORY_MAP = {
     "小丑": "joker_memory.json",
     "人质": "hostage_memory.json"
@@ -14,7 +14,7 @@ def get_role_prompt(role_name):
     if memory_file:
         memory_path = os.path.join(MEMORY_FOLDER, memory_file)
         try:
-            if os.path.exists(memory_path):
+            if os.path.exists(memory_path) and os.path.isfile(memory_path):
                 with open(memory_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     if isinstance(data, list):
@@ -24,7 +24,7 @@ def get_role_prompt(role_name):
                         memory_content = data.get('content', str(data))
                     else:
                         memory_content = str(data)
-        except:
+        except Exception:
             pass
     
     role_personality = {

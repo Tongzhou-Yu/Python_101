@@ -1,17 +1,17 @@
 import requests
-
-from requests.utils import stream_decode_response_unicode
+import json
 
 try:
-    from config import ZHIPU_API_KEY
-except ImportError:
-    ZHIPU_API_KEY = "你的智谱AI_API_KEY"
+    import streamlit as st
+    ZHIPU_API_KEY = st.secrets.get("ZHIPU_API_KEY", "1732aa9845ec4ce09dca7cd10e02d209.dA36k1HPTnFk7cLU")
+except:
+    ZHIPU_API_KEY = "1732aa9845ec4ce09dca7cd10e02d209.dA36k1HPTnFk7cLU"
 
 def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
     headers = {
-        "Authorization": ZHIPU_API_KEY,
+        "Authorization": f"Bearer {ZHIPU_API_KEY}",
         "Content-Type": "application/json"
     }
 
@@ -21,7 +21,13 @@ def call_zhipu_api(messages, model="glm-4-flash"):
         "temperature": 0.5   
     }
 
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.post(
+        url, 
+        headers=headers, 
+        json=data,
+        timeout=30
+    )
+    response.encoding = 'utf-8'
 
     if response.status_code == 200:
         return response.json()
