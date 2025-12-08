@@ -91,6 +91,6 @@ pip install requests streamlit websocket-client pygame
 
 第五周将深入学习“云端AI对话系统架构”，下图为参考架构图：
 
-![AI对话系统架构图_ChatdollKit版](assets/AI对话系统架构图_ChatdollKit版.png)
+![AI对话系统架构图_ChatdollKit版](AI对话系统架构图_ChatdollKit版.png)
 
 
