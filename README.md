@@ -85,3 +85,12 @@ pip install requests streamlit websocket-client pygame
 | 第2周 | 对话系统             | 2_\* 单轮对话 → 多轮对话 → 角色扮演 → TTS（语音合成）                                                                                                          |
 | 第3周 | 记忆系统             | 3_\* 函数引入 → 记忆机制基础 → 克隆机器人 → 接入 Streamlit 前端                                                                                                |
 | 第4周 | 工程重构与实用增强 🆕 | 4.1_\* 项目结构标准化、API解耦拆分、异常处理优化、虚拟环境、依赖管理<br>4.2_\* 角色模块细分、终止规则模块化、对话逻辑增强（见 roles.py / logic.py / chat.py ） |
+
+
+## 第五周预告
+
+第五周将深入学习“云端AI对话系统架构”，下图为参考架构图：
+
+![AI对话系统架构图_ChatdollKit版](assets/AI对话系统架构图_ChatdollKit版.png)
+
+
