@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime
 
-JSONBIN_BIN_ID = "6930e999ae596e708f822224"
+JSONBIN_BIN_ID = "693666ce43b1c97be9df001c"
 JSONBIN_ACCESS_KEY = "$2a$10$Vx9xdZLj14w8Tmdy7Bhqwu74fcQVBHN5trY4ABjxztuEdNLjuKT6a"
 
 JSONBIN_URL = f"https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}"
@@ -17,10 +17,16 @@ def save_latest_reply(text):
         response = requests.put(
             JSONBIN_URL,
             json=data,
-            headers={"X-Access-Key": JSONBIN_ACCESS_KEY}
+            headers={
+                "X-Access-Key": JSONBIN_ACCESS_KEY,
+                "Content-Type": "application/json"
+            }
         )
+        if response.status_code != 200:
+            print(f"JSONBin Save Error: {response.status_code} - {response.text}")
         return response.status_code == 200
-    except:
+    except Exception as e:
+        print(f"JSONBin Save Exception: {e}")
         return False
 
 def get_latest_reply():
