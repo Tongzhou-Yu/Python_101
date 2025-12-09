@@ -24,9 +24,8 @@ tts_audio/
 .vscode/
 .idea/
 
-# Unity 项目（包含版权内容，不提交到 Git）
-5.2_unity_chatdoll/
 # Unity 通用忽略规则（防止意外提交）
+# 注意：5.2_unity_chatdoll 有自己的 .gitignore 控制忽略规则
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
