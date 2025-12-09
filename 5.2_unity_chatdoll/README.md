@@ -5,10 +5,12 @@
 ## 功能特性
 
 - 🎤 监听 JSONBin.io 实时获取文本消息
-- 🔊 Fish Audio TTS 中文语音合成
+- 🔊 **Fish Audio** TTS 中文语音合成（HTTP API，简单稳定）
 - 👄 uLipSync 口型同步驱动
 - 👁️ VRM10 自动眨眼
 - 🎭 VRM 1.0 模型支持
+
+> **注意：** 本项目使用 Fish Audio TTS，不需要科大讯飞或 NativeWebSocket。
 
 ## 快速开始
 
@@ -44,11 +46,13 @@
 #### JSONBin.io
 1. 注册 https://jsonbin.io
 2. 创建 Bin，获取 **Bin ID** 和 **Access Key**
+3. 配置 Python 后端写入 JSONBin（参考 `5_backend_101/jsonbin.py`）
 
-#### Fish Audio
+#### Fish Audio TTS
 1. 注册 https://fishspeech.net
-2. 获取 **API Key**
+2. 获取 **API Key**（个人版有免费额度）
 3. 选择声音模型，获取 **Reference ID**
+4. 在 Unity Inspector 中配置到 `Fish Audio Speech Synthesizer` 组件
 
 ### 5. 场景配置
 
@@ -92,8 +96,25 @@
 ## 工作流程
 
 ```
-Python 后端生成回复 → 写入 JSONBin → Unity 轮询检测 → Fish Audio TTS → 角色说话 + 口型同步
+Python 后端生成回复 
+  ↓
+写入 JSONBin.io
+  ↓
+Unity JsonBinListener 轮询检测（每2秒）
+  ↓
+检测到新消息
+  ↓
+Fish Audio TTS 生成语音（HTTP API）
+  ↓
+角色说话 + uLipSync 口型同步 + 自动眨眼
 ```
+
+## 技术栈
+
+- **TTS**: Fish Audio（HTTP REST API，无需 WebSocket）
+- **口型同步**: uLipSync + VRM Expression
+- **模型格式**: VRM 1.0
+- **通信**: JSONBin.io（轻量级数据同步）
 
 ## 常见问题
 

@@ -1,7 +1,6 @@
 {
     "name": "Scripts",
     "references": [
-        "endel.nativewebsocket",
         "UniTask",
         "ChatdollKit",
         "VRM10"
