@@ -1,92 +1,117 @@
-# 5.2 Unity Chatdoll
+# 5.2 Unity Chatdoll - 虚拟角色语音交互
 
-数字媒体艺术本科课程示范项目 - Unity 虚拟角色 + TTS 语音合成
+数字媒体艺术课程示范项目 - 实现 VRM 虚拟角色的实时语音交互，包含 TTS 语音合成、口型同步和自动眨眼。
 
-## 功能
+## 功能特性
 
-- 监听 JSONBin.io 获取文本消息
-- 使用 Fish Audio TTS 生成语音
-- VRM 模型口型同步 (uLipSync)
-- 自动眨眼
+- 🎤 监听 JSONBin.io 实时获取文本消息
+- 🔊 Fish Audio TTS 中文语音合成
+- 👄 uLipSync 口型同步驱动
+- 👁️ VRM10 自动眨眼
+- 🎭 VRM 1.0 模型支持
 
-## 依赖包安装
+## 快速开始
 
-克隆此仓库后，需要按以下顺序安装依赖包：
+### 1. 安装依赖包
 
-### 1. UniTask
-- 下载: `UniTask.2.5.10.unitypackage`
-- GitHub: https://github.com/Cysharp/UniTask
+按以下顺序导入 unitypackage：
 
-### 2. VRM 1.0
-- 下载: `VRM-0.130.1_c721.unitypackage`
-- GitHub: https://github.com/vrm-c/UniVRM
+| 包名 | 版本 | 下载 |
+|------|------|------|
+| UniTask | 2.5.10+ | [GitHub](https://github.com/Cysharp/UniTask) |
+| UniVRM | 0.130.1+ | [GitHub](https://github.com/vrm-c/UniVRM) |
+| ChatdollKit | 0.8.15+ | [GitHub](https://github.com/uezo/ChatdollKit) |
+| uLipSync | 3.1.4+ | [GitHub](https://github.com/hecomi/uLipSync) |
 
-### 3. ChatdollKit
-- 下载: `ChatdollKit_0.8.15.unitypackage`
-- GitHub: https://github.com/uezo/ChatdollKit
+### 2. 配置宏定义
 
-### 4. uLipSync
-- 下载: `uLipSync-v3.1.4-with-Samples.unitypackage`
-- GitHub: https://github.com/hecomi/uLipSync
+1. `Edit → Project Settings → Player`
+2. `Other Settings → Scripting Define Symbols`
+3. 添加：`USE_VRM10`
+4. 点击 Apply
 
-### 5. AnimeGirlIdleAnimations_free (可选)
-- 从 Unity Asset Store 下载
+### 3. 准备 VRM 模型
 
-## 安装后配置
+将你的 VRM 1.0 模型放入 `Assets/Models/` 文件夹。
 
-1. 打开 `Edit → Project Settings → Player`
-2. 在 `Other Settings → Scripting Define Symbols` 中添加：
-   ```
-   USE_VRM10
-   ```
-3. 点击 Apply
+推荐来源：
+- [VRoid Hub](https://hub.vroid.com/)
+- [Booth](https://booth.pm/)
+- [VRoid Studio](https://vroid.com/studio)
 
-## 场景配置
+### 4. 配置 API
+
+#### JSONBin.io
+1. 注册 https://jsonbin.io
+2. 创建 Bin，获取 **Bin ID** 和 **Access Key**
+
+#### Fish Audio
+1. 注册 https://fishspeech.net
+2. 获取 **API Key**
+3. 选择声音模型，获取 **Reference ID**
+
+### 5. 场景配置
 
 打开 `Assets/Scenes/Chatdoll.unity`
 
-### ChatDoll 物体组件：
-- Model Controller
-- Json Bin Listener (配置 Bin ID 和 Access Key)
-- Fish Audio Speech Synthesizer (配置 API Key 和 Reference ID)
-- U Lip Sync (配置 Profile)
-- VRM10 Blink
+#### ChatDoll 物体
+| 组件 | 配置项 |
+|------|--------|
+| Model Controller | Avatar Model → 你的 VRM 模型 |
+| Json Bin Listener | Bin ID, Access Key |
+| Fish Audio Speech Synthesizer | API Key, Reference ID |
+| U Lip Sync | Profile → uLipSync-Profile-Sample-Female |
+| VRM10 Blink | (使用默认值) |
 
-### Joker 物体组件：
-- U Lip Sync Expression VRM (配置 A/I/U/E/O 口型映射)
+#### VRM 模型物体
+| 组件 | 配置项 |
+|------|--------|
+| U Lip Sync Expression VRM | 配置 A/I/U/E/O 口型映射 |
 
-## API 配置
+#### U Lip Sync 事件连接
+在 ChatDoll 的 `U Lip Sync` 组件中：
+- `On Lip Sync Update` → 拖入 VRM 模型
+- 选择函数：`uLipSyncExpressionVRM.OnLipSyncUpdate`
 
-### JSONBin.io
-1. 注册 https://jsonbin.io
-2. 创建一个 Bin
-3. 获取 Bin ID 和 Access Key
-
-### Fish Audio
-1. 注册 https://fishspeech.net
-2. 获取 API Key
-3. 选择一个声音模型，获取 Reference ID
-
-## VRM 模型
-
-需要自行准备 VRM 1.0 格式的模型，放入 `Assets/Models/` 文件夹。
-
-推荐来源：
-- [VRoid Hub](https://hub.vroid.com/) - 免费/付费模型
-- [Booth](https://booth.pm/) - 日本创作者平台
-- [VRoid Studio](https://vroid.com/studio) - 自己制作
-
-## 文件说明
+## 项目结构
 
 ```
-Assets/
-├── Scripts/           # 原创脚本
-│   ├── JsonBinListener.cs
-│   ├── FishAudioSpeechSynthesizer.cs
-│   └── VRM10Blink.cs
-├── Scenes/            # 场景文件
-│   └── Chatdoll.unity
-├── Models/            # VRM 模型（需自行准备）
-└── Animator/          # 动画控制器
+5.2_unity_chatdoll/
+├── Assets/
+│   ├── Scripts/                    # 原创脚本
+│   │   ├── JsonBinListener.cs      # JSONBin 轮询监听
+│   │   ├── FishAudioSpeechSynthesizer.cs  # Fish Audio TTS
+│   │   └── VRM10Blink.cs           # VRM 眨眼控制
+│   ├── Scenes/
+│   │   └── Chatdoll.unity          # 主场景
+│   └── Models/                     # VRM 模型（需自行准备）
+├── ProjectSettings/                # Unity 项目设置
+└── Packages/                       # 包管理配置
 ```
 
+## 工作流程
+
+```
+Python 后端生成回复 → 写入 JSONBin → Unity 轮询检测 → Fish Audio TTS → 角色说话 + 口型同步
+```
+
+## 常见问题
+
+### 口型不同步
+- 检查 `U Lip Sync` 的 Profile 是否设置
+- 检查 `On Lip Sync Update` 事件是否正确连接
+
+### 眨眼不工作
+- 确认添加了 `VRM10Blink` 组件（不是普通的 `Blink`）
+- 确认 `USE_VRM10` 宏定义已添加
+
+### TTS 报错 401
+- 检查 Fish Audio API Key 是否正确
+- 确认 API Key 没有多余空格
+
+### TTS 报错 402
+- Fish Audio 配额不足，需要充值或等待重置
+
+## 许可证
+
+原创代码部分采用 MIT 许可证。第三方包请遵循各自的许可协议。
