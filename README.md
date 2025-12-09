@@ -12,8 +12,9 @@
 ![Anaconda 添加到 PATH 路径截图](Anaconda_PATH.png)
 
 ## 课程需申请的API Key：
-- https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys
-- https://console.xfyun.cn/services/uts
+- **智谱AI**：https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys
+- **Fish Audio TTS**：https://fishspeech.net（Unity 项目使用）
+- **JSONBin.io**：https://jsonbin.io（Unity 项目使用）
 
 ## 虚拟环境设置（Cursor）
 
@@ -95,44 +96,41 @@ pip install requests streamlit websocket-client pygame
 
 ## Unity 项目依赖（5.2_unity_chatdoll）
 
-**注意**：`5.2_unity_chatdoll` 文件夹包含版权内容（VRM 模型等），**不会提交到 Git**。如需运行 Unity 项目，请手动导入以下 Unity Package：
+**注意**：`5.2_unity_chatdoll` 文件夹包含版权内容（VRM 模型等），**不会提交到 Git**。详细安装说明请参考 [`5.2_unity_chatdoll/README.md`](5.2_unity_chatdoll/README.md)。
 
 ### 必需包（按导入顺序）
 
-1. **ChatdollKit_0.8.15.unitypackage**
+1. **UniTask.2.5.10.unitypackage**
+   - 异步编程库，ChatdollKit 依赖
+   - 下载地址：https://github.com/Cysharp/UniTask/releases
+
+2. **VRM-0.130.1_c721.unitypackage** (或更新版本)
+   - VRM 1.0 格式支持库（UniVRM）
+   - 下载地址：https://github.com/vrm-c/UniVRM/releases
+
+3. **ChatdollKit_0.8.15.unitypackage**
    - 核心框架，提供 ModelController、AnimatedVoiceRequest 等基础功能
    - 下载地址：https://github.com/uezo/ChatdollKit/releases/tag/v0.8.15
-
-2. **ChatdollKit_VRMExtension_0.8.15.unitypackage**
-   - VRM 模型支持扩展，用于加载和控制 VRM 角色
-   - 下载地址：https://github.com/uezo/ChatdollKit/releases/tag/v0.8.15
-
-3. **VRM-0.127.2_e16c.unitypackage**
-   - VRM 格式支持库（UniVRM）
-   - 下载地址：https://github.com/vrm-c/UniVRM/releases
 
 4. **uLipSync-v3.1.4-with-Samples.unitypackage**
    - 口型同步库，用于根据音频生成口型动画
    - 下载地址：https://github.com/hecomi/uLipSync/releases
 
-5. **UniTask.2.5.10.unitypackage**
-   - 异步编程库，ChatdollKit 依赖
-   - 下载地址：https://github.com/Cysharp/UniTask/releases
-
-6. **NativeWebSocket.unitypackage**
-   - WebSocket 客户端库，用于科大讯飞 TTS 的 WebSocket 连接
-   - 下载地址：https://github.com/endel/NativeWebSocket/releases
-
 ### 导入步骤
 
 1. 在 Unity 中打开项目
 2. 依次双击上述 `.unitypackage` 文件导入
-3. 导入顺序建议：ChatdollKit → VRMExtension → VRM → uLipSync → UniTask → NativeWebSocket
-4. 导入完成后，检查 `Assets/Scripts/JsonBinListener.cs` 是否存在
+3. 导入顺序建议：**UniTask → VRM → ChatdollKit → uLipSync**
+4. 导入完成后，在 `Project Settings > Player > Scripting Define Symbols` 添加 `USE_VRM10`
+5. 检查 `Assets/Scripts/JsonBinListener.cs` 是否存在
+
+### API 配置
+
+- **Fish Audio TTS**：注册 https://fishspeech.net，获取 API Key 和 Reference ID
+- **JSONBin.io**：注册 https://jsonbin.io，获取 Bin ID 和 Access Key
 
 ### 可选资源
 
-- **VRM 模型**：从 VRoid Hub 或其他来源获取 VRM 格式的 3D 角色模型
-- **科大讯飞 TTS API 凭证**：需要 APPID、APIKey、APISecret（见 `config.py` 或科大讯飞控制台）
+- **VRM 模型**：从 VRoid Hub、Booth 或其他来源获取 VRM 1.0 格式的 3D 角色模型
 
 
