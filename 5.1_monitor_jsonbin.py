@@ -2,9 +2,15 @@ import requests
 import time
 import json
 
-# 配置 (与 jsonbin.py 保持一致)
-BIN_ID = "693666ce43b1c97be9df001c"
-ACCESS_KEY = "$2a$10$Vx9xdZLj14w8Tmdy7Bhqwu74fcQVBHN5trY4ABjxztuEdNLjuKT6a"
+# 配置（请填入你的 JSONBin 配置）
+BIN_ID = ""  # 在 JSONBin.io 控制台获取
+ACCESS_KEY = ""  # 在 JSONBin.io 控制台的 API Keys 页面获取
+
+if not BIN_ID or not ACCESS_KEY:
+    print("❌ 错误：请先配置 BIN_ID 和 ACCESS_KEY")
+    print("在脚本顶部填入你的 JSONBin 配置")
+    exit(1)
+
 URL = f"https://api.jsonbin.io/v3/b/{BIN_ID}/latest"
 HEADERS = {"X-Access-Key": ACCESS_KEY}
 

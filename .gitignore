@@ -24,3 +24,31 @@ tts_audio/
 .vscode/
 .idea/
 
+# Unity 项目（包含版权内容，不提交到 Git）
+5.2_unity_chatdoll/
+# Unity 通用忽略规则（防止意外提交）
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.apk
+*.aab
+*.unitypackage
+
