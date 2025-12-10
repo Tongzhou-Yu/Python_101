@@ -80,7 +80,7 @@ pip install requests streamlit websocket-client pygame
 
 ## 项目学习路线（Roadmap）
 
-![Python 101 系统架构图（修正版）](python%201010%20system%20archi...corrected.jpg)
+![Python 101 系统架构图（修正版）](Python101_System_Architecture_Diagram.jpg)
 
 
 | 周次  | 主题                 | 主要内容/里程碑                                                                                                                                                |
