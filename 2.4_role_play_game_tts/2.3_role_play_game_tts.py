@@ -1,8 +1,13 @@
 import requests
 import json
 import random
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from requests.utils import stream_decode_response_unicode
+from fish_audio_tts import text_to_speech 
 
 try:
     from config import ZHIPU_API_KEY
@@ -20,7 +25,7 @@ def call_zhipu_api(messages, model="glm-4-flash"):
     data = {
         "model": model,
         "messages": messages,
-        "temperature": 0.5   
+        "temperature": 0.5   # 温度，0.5表示中庸，0表示最保守，1表示最激进
     }
 
     response = requests.post(url, headers=headers, json=data)
@@ -78,7 +83,9 @@ while True:
     
     # 打印回复
     print(assistant_reply)
-    print(conversation_history)
+
+    # TTS语音播放
+    text_to_speech(assistant_reply)
     
     # 检查是否猜对（模型回复"再见"）
     if "再见" in assistant_reply:

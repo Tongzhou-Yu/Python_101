@@ -97,9 +97,9 @@ pip install requests streamlit websocket-client pygame
 
 ![AI对话系统架构图_ChatdollKit版](AI对话系统架构图_ChatdollKit版.png)
 
-## Unity 项目依赖（5.2_unity_chatdoll）
+## Unity 项目依赖（5.3_unity_chatdoll）
 
-**注意**：`5.2_unity_chatdoll` 文件夹包含版权内容（VRM 模型等），**不会提交到 Git**。详细安装说明请参考 [`5.2_unity_chatdoll/README.md`](5.2_unity_chatdoll/README.md)。
+**注意**：`5.3_unity_chatdoll` 文件夹包含版权内容（VRM 模型等），**不会提交到 Git**。详细安装说明请参考 [`5.3_unity_chatdoll/README.md`](5.3_unity_chatdoll/README.md)。
 
 ### 必需包（按导入顺序）
 

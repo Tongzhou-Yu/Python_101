@@ -46,7 +46,7 @@
 #### JSONBin.io
 1. 注册 https://jsonbin.io
 2. 创建 Bin，获取 **Bin ID** 和 **Access Key**
-3. 配置 Python 后端写入 JSONBin（参考 `5_backend_101/jsonbin.py`）
+3. 配置 Python 后端写入 JSONBin（参考 `5.1_backend_101/jsonbin.py`）
 
 #### Fish Audio TTS
 1. 注册 https://fishspeech.net
@@ -80,7 +80,7 @@
 ## 项目结构
 
 ```
-5.2_unity_chatdoll/
+5.3_unity_chatdoll/
 ├── Assets/
 │   ├── Scripts/                    # 原创脚本
 │   │   ├── JsonBinListener.cs      # JSONBin 轮询监听

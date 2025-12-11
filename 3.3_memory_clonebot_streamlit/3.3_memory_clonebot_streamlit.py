@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
 import json
-import os  # 新增：用于文件操作
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from requests.utils import stream_decode_response_unicode
 
