@@ -216,9 +216,6 @@ async function loadData() {
                 createParticles();
                 document.getElementById('status').textContent = '连接成功 | 已更新';
                 document.getElementById('status').style.color = '#4CAF50';
-            } else {
-                document.getElementById('status').textContent = '连接成功';
-                document.getElementById('status').style.color = '#4CAF50';
             }
         } else {
             document.getElementById('status').textContent = '加载失败: ' + response.status;
